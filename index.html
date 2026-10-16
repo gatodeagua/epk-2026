@@ -5,23 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SLØTHS | Official EPK</title>
   
-  <!-- Tipografías de Google Fonts: Inter (General) y Playfair Display (Destacado) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-  
-  <!-- Iconos FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* Reset */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
     
-    /* HERO */
     .hero { height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: #111; }
-    
-    /* Fondo negro temporal hasta que subamos el vídeo a GitHub */
     .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #0a0a0a; }
     
     .top-socials { display: flex; justify-content: center; gap: 24px; padding: 30px; z-index: 1; }
@@ -31,35 +24,31 @@
     .hero-logo { z-index: 1; display: flex; justify-content: center; align-items: center; flex-grow: 1; pointer-events: none; }
     .hero-logo img { width: 80%; max-width: 600px; animation: float 6s ease-in-out infinite; }
     
-    .bottom-nav { display: flex; justify-content: center; gap: 30px; padding: 40px 20px; z-index: 1; }
+    .bottom-nav { display: flex; justify-content: center; gap: 30px; padding: 40px 20px; z-index: 1; flex-wrap: wrap; }
     .bottom-nav a { color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; transition: color 0.3s; }
     .bottom-nav a:hover { color: #555; }
 
-    /* SECTIONS */
     section { min-height: 100vh; padding: 100px 10%; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid #1a1a1a; }
     h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 50px; font-weight: 900; }
     
-    /* ABOUT */
     .about-text { font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin-bottom: 50px; color: #a1a1a1; font-weight: 400; }
     .about-text p { margin-bottom: 24px; }
-    
     .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #fff; line-height: 1.2; margin-top: 40px; }
     
-    /* SLIDER */
     .slider { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
     .slider::-webkit-scrollbar { display: none; }
     .slider img { height: 350px; min-width: 450px; object-fit: cover; border-radius: 2px; filter: grayscale(100%); transition: filter 0.4s ease; }
     .slider img:hover { filter: grayscale(0%); }
+    @media (max-width: 768px) { .slider img { min-width: 300px; height: 250px; } }
 
-    /* MUSIC */
     .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     @media (max-width: 768px) { .music-grid { grid-template-columns: 1fr; } }
     .video-stack iframe { width: 100%; height: 260px; border-radius: 8px; margin-bottom: 20px; border: none; }
 
-    /* CONTACT */
     .contact-wrapper { display: flex; flex-direction: column; gap: 24px; }
-    .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; }
+    .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; word-break: break-all; }
     .contact-link:hover { color: #555; }
+    @media (max-width: 768px) { .contact-link { font-size: 1.8rem; } }
     
     .ghost-buttons { display: flex; gap: 20px; margin-top: 60px; flex-wrap: wrap; }
     .ghost-btn { padding: 14px 28px; border: 1px solid #fff; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; }
@@ -73,10 +62,8 @@
 </head>
 <body>
 
-  <!-- HERO SECTION -->
   <header class="hero" id="home">
     <div class="video-bg"></div>
-
     <nav class="top-socials">
       <a href="https://www.instagram.com/slothstheband/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@slothstheband/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
@@ -98,54 +85,42 @@
     </nav>
   </header>
 
-  <!-- ABOUT SECTION -->
   <section id="about">
     <h2>About</h2>
     <div class="about-text">
       <p>We like our rock heavy, our grooves hypnotic and our psychedelia a little twisted. Somewhere between desert heat, fuzz-drenched riffs and the darkest corners of Barcelona, SLØTHS found their sound. No genre rules, no clean-cut edges — just four musicians chasing the point where melody gets dirty and things start to unravel.</p>
       <p>Born in London and raised in Barcelona’s underground, we released Terraces in 2026: a nine-track trip through guilt, desire and transcendence. But records only tell half the story. The rest happens live, where riffs stretch, grooves lock in and the atmosphere takes over.</p>
       <p>We’re here to play loud, get lost and take the room with us. Promoters, bookers, curious listeners — if you like your rock with a little grit and a psychedelic streak, you know what to do.</p>
-      
-      <!-- Frase destacada -->
       <p class="statement-text">Book a show. Come down. See what happens.</p>
     </div>
     
-    <!-- SLIDER DE FOTOS -->
     <div class="slider">
-      <!-- Cambia el src por tus links de Postimg -->
-      <img src="https://via.placeholder.com/600x400/222/555?text=SUBE+FOTO+1+A+POSTIMG" alt="Sloths Live">
-      <img src="https://via.placeholder.com/600x400/222/555?text=SUBE+FOTO+2+A+POSTIMG" alt="Sloths Live">
-      <img src="https://via.placeholder.com/600x400/222/555?text=SUBE+FOTO+3+A+POSTIMG" alt="Sloths Live">
+      <img src="https://i.postimg.cc/hGyN5cJc/000008.jpg" alt="Sloths Live 1">
+      <img src="https://i.postimg.cc/g0S1Tmwp/000028.jpg" alt="Sloths Live 2">
+      <img src="https://i.postimg.cc/s26bNsBy/000039.jpg" alt="Sloths Live 3">
+      <img src="https://i.postimg.cc/YSnTsM4t/000044.jpg" alt="Sloths Live 4">
     </div>
   </section>
 
-  <!-- MUSIC SECTION -->
   <section id="music">
     <h2>Music</h2>
     <div class="music-grid">
-      
-      <!-- Spotify -->
       <div class="spotify">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2azG6Ac6dywYm2NaNFpZcY?utm_source=generator&theme=0" width="100%" height="540" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
-      
-      <!-- YouTube Videos -->
       <div class="video-stack">
         <iframe src="https://www.youtube.com/embed/AslbE_4RdU8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/YEL_nkwpyaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-wrapper">
       <a class="contact-link" href="mailto:contact@sloths.music">contact@sloths.music</a>
       <a class="contact-link" href="https://wa.me/+34623068523" target="_blank">WhatsApp Us</a>
     </div>
-    
     <div class="ghost-buttons">
       <a href="#" class="ghost-btn">Download Dossier</a>
       <a href="#" class="ghost-btn">Tech Rider</a>
