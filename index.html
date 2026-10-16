@@ -34,16 +34,12 @@
     .bottom-nav a:hover { opacity: 0.6; }
 
     section { min-height: 100vh; padding: 100px 10%; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid #1a1a1a; }
-    
-    /* Corrección del espaciado para la sección Contact */
     #contact { justify-content: flex-start; }
-
     h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 50px; font-weight: 900; color: #a659cf; }
     
-    /* Vuelto a 1 columna en escritorio */
-    .about-text { font-size: 1.1rem; line-height: 1.6; width: 100%; text-align: justify; margin-bottom: 50px; color: #f2f2f2; font-weight: 400; }
-    .about-text p { margin-bottom: 24px; }
-    .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #a659cf; line-height: 1.2; margin-top: 40px; text-align: left; }
+    .about-text { font-size: 1.1rem; line-height: 1.6; width: 100%; text-align: justify; margin-bottom: 50px; color: #f2f2f2; font-weight: 400; column-count: 2; column-gap: 60px; }
+    .about-text p { margin-bottom: 24px; break-inside: avoid; }
+    .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #a659cf; line-height: 1.2; margin-top: 40px; text-align: left; column-span: all; }
     
     .slider-container { width: 100%; overflow: hidden; padding-bottom: 20px; }
     .slider-track { display: flex; gap: 20px; width: max-content; animation: scroll 15s linear infinite; }
@@ -51,7 +47,6 @@
     
     .slide-item { position: relative; width: 450px; height: 350px; flex-shrink: 0; cursor: pointer; }
     .slide-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; filter: grayscale(0%); transition: filter 0.4s ease; }
-    
     .slide-caption { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 0.6rem; font-weight: 700; text-align: center; opacity: 0; transition: opacity 0.4s ease; text-transform: uppercase; letter-spacing: 1px; width: 100%; pointer-events: none; text-shadow: 0 2px 6px rgba(0,0,0,0.9); white-space: nowrap; }
     
     .slide-item:hover img { filter: grayscale(100%); }
@@ -78,26 +73,20 @@
 
     .site-footer { text-align: center; padding: 20px; border-top: 1px solid #1a1a1a; font-size: 0.65rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* MOBILE OPTIMIZATIONS */
     @media (max-width: 768px) { 
       section { padding: 60px 5%; min-height: auto; }
       h2 { margin-bottom: 30px; font-size: 2.2rem; }
       .hero { height: 100svh; } 
       .hero-logo img { width: 95%; max-width: 100%; }
-      
       .top-socials { padding: 30px 5% 10px; max-width: 100%; gap: 10px; }
       .bottom-nav { padding: 10px 5% 30px; max-width: 100%; gap: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .bottom-nav a { font-size: 0.75rem; letter-spacing: 1px; white-space: nowrap; }
-
-      .about-text { font-size: 1rem; }
+      .about-text { column-count: 1; font-size: 1rem; }
       .statement-text { font-size: 1.8rem; margin-top: 20px; }
-      
       .slide-item { width: 300px; height: 250px; }
       .slide-caption { font-size: 0.5rem; white-space: normal; padding: 0 10px; }
-      
       .music-grid { grid-template-columns: 1fr; gap: 30px; align-items: start; }
       .spotify iframe { min-height: 400px; }
-      
       .contact-link { font-size: 1.8rem; }
       .ghost-buttons { margin-top: 40px; }
     }
@@ -107,7 +96,7 @@
 
   <header class="hero" id="home">
     <video class="video-bg" autoplay loop muted playsinline preload="auto">
-      <source src="https://files.catbox.moe/sim0u5.mp4" type="video/mp4">
+      <source src="video.mp4" type="video/mp4">
     </video>
 
     <nav class="top-socials">
@@ -120,7 +109,7 @@
     </nav>
 
     <div class="hero-logo">
-      <img src="https://i.postimg.cc/44H8bzsn/SLOTHS-DOSSIER-2026-ENG-(1920-x-1080-px).png" alt="SLØTHS">
+      <img src="logo.png" alt="SLØTHS">
     </div>
 
     <nav class="bottom-nav">
@@ -143,36 +132,36 @@
     <div class="slider-container">
       <div class="slider-track">
         <div class="slide-item">
-          <img src="https://i.postimg.cc/YSnTsM4t/000044.jpg" alt="Sloths Live 1">
+          <img src="foto1.jpg" alt="Sloths Live 1">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
         <div class="slide-item">
-          <img src="https://i.postimg.cc/g0S1Tmwp/000028.jpg" alt="Sloths Live 2">
+          <img src="foto2.jpg" alt="Sloths Live 2">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
         <div class="slide-item">
-          <img src="https://i.postimg.cc/s26bNsBy/000039.jpg" alt="Sloths Live 3">
+          <img src="foto3.jpg" alt="Sloths Live 3">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
         <div class="slide-item">
-          <img src="https://i.postimg.cc/hGyN5cJc/000008.jpg" alt="Sloths Live 4">
+          <img src="foto4.jpg" alt="Sloths Live 4">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
-        
+        <!-- Duplicados scroll -->
         <div class="slide-item">
-          <img src="https://i.postimg.cc/YSnTsM4t/000044.jpg" alt="Sloths Live 1">
-          <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
-        </div>
-        <div class="slide-item">
-          <img src="https://i.postimg.cc/g0S1Tmwp/000028.jpg" alt="Sloths Live 2">
+          <img src="foto1.jpg" alt="Sloths Live 1">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
         <div class="slide-item">
-          <img src="https://i.postimg.cc/s26bNsBy/000039.jpg" alt="Sloths Live 3">
+          <img src="foto2.jpg" alt="Sloths Live 2">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
         <div class="slide-item">
-          <img src="https://i.postimg.cc/hGyN5cJc/000008.jpg" alt="Sloths Live 4">
+          <img src="foto3.jpg" alt="Sloths Live 3">
+          <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
+        </div>
+        <div class="slide-item">
+          <img src="foto4.jpg" alt="Sloths Live 4">
           <div class="slide-caption">Sløths 2026. Photos by Nico J. Bascompte. All rights reserved.</div>
         </div>
       </div>
