@@ -14,7 +14,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
     
-    .hero { height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: #000; }
+    /* Fondo de seguridad inyectado aquí por si el vídeo falla estrepitosamente */
+    .hero { 
+      height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; 
+      background: #000 url('https://i.postimg.cc/YSnTsM4t/000044.jpg') center/cover no-repeat; 
+    }
     
     .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: -1; object-fit: cover; opacity: 0.8; }
     
@@ -70,9 +74,9 @@
 
   <header class="hero" id="home">
     
-    <!-- Link directo inyectado -->
-    <video class="video-bg" autoplay loop muted playsinline preload="auto">
-      <source src="https://files.catbox.moe/ypwdvr.mp4" type="video/mp4">
+    <!-- Atributo poster inyectado con la imagen a color -->
+    <video class="video-bg" autoplay loop muted playsinline preload="auto" poster="https://i.postimg.cc/YSnTsM4t/000044.jpg">
+      <source src="https://files.catbox.moe/cwi6is.mp4" type="video/mp4">
     </video>
 
     <nav class="top-socials">
