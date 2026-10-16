@@ -12,33 +12,40 @@
   
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
     
-    /* Fondo de seguridad inyectado aquí por si el vídeo falla estrepitosamente */
+    /* Fondo morado oscuro (#281c38) extraído de tu logo */
+    body, html { font-family: 'Inter', sans-serif; background-color: #281c38; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
+    
+    /* Capa negra inyectada con rgba(0,0,0,0.6) para salvar el contraste de la foto */
     .hero { 
       height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; 
-      background: #000 url('https://i.postimg.cc/YSnTsM4t/000044.jpg') center/cover no-repeat; 
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/YSnTsM4t/000044.jpg') center/cover no-repeat; 
+      background-color: #000;
     }
     
     .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: -1; object-fit: cover; opacity: 0.8; }
     
     .top-socials { display: flex; justify-content: center; gap: 24px; padding: 30px; z-index: 1; }
-    .top-socials a { color: #fff; font-size: 1.4rem; text-decoration: none; transition: opacity 0.2s ease; }
+    /* Color lila (#a659cf) para redes */
+    .top-socials a { color: #a659cf; font-size: 1.4rem; text-decoration: none; transition: opacity 0.2s ease; }
     .top-socials a:hover { opacity: 0.5; }
     
     .hero-logo { z-index: 1; display: flex; justify-content: center; align-items: center; flex-grow: 1; pointer-events: none; }
     .hero-logo img { width: 80%; max-width: 600px; animation: float 6s ease-in-out infinite; }
     
     .bottom-nav { display: flex; justify-content: center; gap: 30px; padding: 40px 20px; z-index: 1; flex-wrap: wrap; }
-    .bottom-nav a { color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; transition: color 0.3s; }
-    .bottom-nav a:hover { color: #555; }
+    /* Color lila (#a659cf) para el directorio */
+    .bottom-nav a { color: #a659cf; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; transition: opacity 0.3s; }
+    .bottom-nav a:hover { opacity: 0.5; }
 
     section { min-height: 100vh; padding: 100px 10%; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid #1a1a1a; }
-    h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 50px; font-weight: 900; }
+    /* Color lila (#a659cf) para los títulos */
+    h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 50px; font-weight: 900; color: #a659cf; }
     
     .about-text { font-size: 1.2rem; line-height: 1.6; width: 100%; text-align: justify; margin-bottom: 50px; color: #a1a1a1; font-weight: 400; }
     .about-text p { margin-bottom: 24px; }
-    .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #fff; line-height: 1.2; margin-top: 40px; text-align: left; }
+    /* Lila para que haga match con el resto de acentos */
+    .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #a659cf; line-height: 1.2; margin-top: 40px; text-align: left; }
     
     .slider-container { width: 100%; overflow: hidden; padding-bottom: 20px; }
     .slider-track { display: flex; gap: 20px; width: max-content; animation: scroll 15s linear infinite; }
@@ -56,13 +63,15 @@
     .video-stack iframe:last-child { margin-bottom: 0; }
 
     .contact-wrapper { display: flex; flex-direction: column; gap: 24px; }
-    .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; word-break: break-all; }
-    .contact-link:hover { color: #555; }
+    /* Color lila (#a659cf) para contactos */
+    .contact-link { font-size: 2.5rem; font-weight: 700; color: #a659cf; text-decoration: none; width: fit-content; transition: opacity 0.3s; letter-spacing: -1px; word-break: break-all; }
+    .contact-link:hover { opacity: 0.6; }
     @media (max-width: 768px) { .contact-link { font-size: 1.8rem; } }
     
     .ghost-buttons { display: flex; gap: 20px; margin-top: 60px; flex-wrap: wrap; }
-    .ghost-btn { padding: 14px 28px; border: 1px solid #fff; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; }
-    .ghost-btn:hover { background: #fff; color: #0d0d0d; }
+    /* Color lila (#a659cf) para botones fantasma */
+    .ghost-btn { padding: 14px 28px; border: 1px solid #a659cf; color: #a659cf; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; }
+    .ghost-btn:hover { background: #a659cf; color: #281c38; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -74,7 +83,6 @@
 
   <header class="hero" id="home">
     
-    <!-- Atributo poster inyectado con la imagen a color -->
     <video class="video-bg" autoplay loop muted playsinline preload="auto" poster="https://i.postimg.cc/YSnTsM4t/000044.jpg">
       <source src="https://files.catbox.moe/cwi6is.mp4" type="video/mp4">
     </video>
