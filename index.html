@@ -16,7 +16,6 @@
     
     .hero { height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: #000; }
     
-    /* Configuración del vídeo de fondo */
     .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: -1; object-fit: cover; opacity: 0.8; }
     
     .top-socials { display: flex; justify-content: center; gap: 24px; padding: 30px; z-index: 1; }
@@ -45,9 +44,12 @@
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 10px)); } }
     @media (max-width: 768px) { .slider-track img { width: 300px; height: 250px; } }
 
-    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    /* Fix para los cortes de vídeo y altura de Spotify */
+    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
     @media (max-width: 768px) { .music-grid { grid-template-columns: 1fr; } }
-    .video-stack iframe { width: 100%; height: 260px; border-radius: 8px; margin-bottom: 20px; border: none; }
+    .video-stack { display: flex; flex-direction: column; gap: 24px; }
+    .video-stack iframe { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; border: none; }
+    .spotify iframe { min-height: 600px; height: 100%; }
 
     .contact-wrapper { display: flex; flex-direction: column; gap: 24px; }
     .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; word-break: break-all; }
@@ -68,7 +70,6 @@
 
   <header class="hero" id="home">
     
-    <!-- Vídeo inyectado (asegúrate de que el archivo subido se llama sloths-bg.mp4) -->
     <video class="video-bg" autoplay loop muted playsinline>
       <source src="sloths-bg.mp4" type="video/mp4">
     </video>
@@ -122,7 +123,7 @@
     <h2>Music</h2>
     <div class="music-grid">
       <div class="spotify">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2azG6Ac6dywYm2NaNFpZcY?utm_source=generator&theme=0" width="100%" height="540" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2azG6Ac6dywYm2NaNFpZcY?utm_source=generator&theme=0" width="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
       <div class="video-stack">
         <iframe src="https://www.youtube.com/embed/AslbE_4RdU8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -131,7 +132,7 @@
     </div>
   </section>
 
-   <section id="contact">
+  <section id="contact">
     <h2>Contact</h2>
     <div class="contact-wrapper">
       <a class="contact-link" href="mailto:contact@sloths.music">Email Us</a>
