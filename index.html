@@ -14,8 +14,10 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
     
-    .hero { height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: #111; }
-    .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #0a0a0a; }
+    .hero { height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: #000; }
+    
+    /* Configuración del vídeo de fondo */
+    .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: -1; object-fit: cover; opacity: 0.8; }
     
     .top-socials { display: flex; justify-content: center; gap: 24px; padding: 30px; z-index: 1; }
     .top-socials a { color: #fff; font-size: 1.4rem; text-decoration: none; transition: opacity 0.2s ease; }
@@ -31,12 +33,10 @@
     section { min-height: 100vh; padding: 100px 10%; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid #1a1a1a; }
     h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 50px; font-weight: 900; }
     
-    /* About Text Justificado al 100% */
     .about-text { font-size: 1.2rem; line-height: 1.6; width: 100%; text-align: justify; margin-bottom: 50px; color: #a1a1a1; font-weight: 400; }
     .about-text p { margin-bottom: 24px; }
     .statement-text { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: #fff; line-height: 1.2; margin-top: 40px; text-align: left; }
     
-    /* Slider Marquee Automático */
     .slider-container { width: 100%; overflow: hidden; padding-bottom: 20px; }
     .slider-track { display: flex; gap: 20px; width: max-content; animation: scroll 15s linear infinite; }
     .slider-track:hover { animation-play-state: paused; cursor: pointer; }
@@ -67,7 +67,12 @@
 <body>
 
   <header class="hero" id="home">
-    <div class="video-bg"></div>
+    
+    <!-- Vídeo inyectado (asegúrate de que el archivo subido se llama sloths-bg.mp4) -->
+    <video class="video-bg" autoplay loop muted playsinline>
+      <source src="sloths-bg.mp4" type="video/mp4">
+    </video>
+
     <nav class="top-socials">
       <a href="https://www.instagram.com/slothstheband/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@slothstheband/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
@@ -100,12 +105,11 @@
     
     <div class="slider-container">
       <div class="slider-track">
-        <!-- Bloque 1 -->
         <img src="https://i.postimg.cc/YSnTsM4t/000044.jpg" alt="Sloths Live 1">
         <img src="https://i.postimg.cc/g0S1Tmwp/000028.jpg" alt="Sloths Live 2">
         <img src="https://i.postimg.cc/s26bNsBy/000039.jpg" alt="Sloths Live 3">
         <img src="https://i.postimg.cc/hGyN5cJc/000008.jpg" alt="Sloths Live 4">
-        <!-- Bloque 2 (Espejo para el loop infinito) -->
+        
         <img src="https://i.postimg.cc/YSnTsM4t/000044.jpg" alt="Sloths Live 1">
         <img src="https://i.postimg.cc/g0S1Tmwp/000028.jpg" alt="Sloths Live 2">
         <img src="https://i.postimg.cc/s26bNsBy/000039.jpg" alt="Sloths Live 3">
@@ -127,7 +131,7 @@
     </div>
   </section>
 
-  <section id="contact">
+   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-wrapper">
       <a class="contact-link" href="mailto:contact@sloths.music">Email Us</a>
