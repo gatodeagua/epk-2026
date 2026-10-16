@@ -15,13 +15,14 @@
     
     body, html { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f2f2f2; scroll-behavior: smooth; overflow-x: hidden; }
     
+    /* Imagen aniquilada. Fondo negro puro por si falla el vídeo */
     .hero { 
       height: 100vh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; 
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/YSnTsM4t/000044.jpg') center/cover no-repeat; 
-      background-color: #000;
+      background-color: #0d0d0d;
     }
     
-    .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: -1; object-fit: cover; opacity: 0.8; }
+    /* z-index en 0 para que no se esconda, opacidad al 0.4 para oscurecerlo contra el fondo negro */
+    .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: 0; object-fit: cover; opacity: 0.4; }
     
     .top-socials { display: flex; justify-content: center; gap: 40px; padding: 40px 20px; z-index: 1; }
     .top-socials a { color: #7642a8; font-size: 1.4rem; text-decoration: none; transition: opacity 0.2s ease; }
