@@ -46,6 +46,7 @@
     
     .slide-item { position: relative; width: 450px; height: 350px; flex-shrink: 0; cursor: pointer; }
     .slide-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; filter: grayscale(0%); transition: filter 0.4s ease; }
+    
     .slide-caption { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 0.6rem; font-weight: 700; text-align: center; opacity: 0; transition: opacity 0.4s ease; text-transform: uppercase; letter-spacing: 1px; width: 100%; pointer-events: none; text-shadow: 0 2px 6px rgba(0,0,0,0.9); white-space: nowrap; }
     
     .slide-item:hover img { filter: grayscale(100%); }
@@ -55,7 +56,6 @@
     
     .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
     
-    /* Forzando a Spotify a estirarse y llenar el grid */
     .spotify { display: flex; flex-direction: column; height: 100%; }
     .spotify iframe { flex-grow: 1; height: 100%; min-height: 540px; border-radius: 12px; }
 
@@ -63,7 +63,8 @@
     .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 8px; overflow: hidden; }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-    .contact-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; gap: 60px; }
+    /* Contactos apilados en columna estricta */
+    .contact-wrapper { display: flex; flex-direction: column; gap: 24px; }
     .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; word-break: break-all; }
     .contact-link:hover { color: #a659cf; }
     
@@ -73,14 +74,16 @@
 
     .site-footer { text-align: center; padding: 20px; border-top: 1px solid #1a1a1a; font-size: 0.65rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
 
+    /* MOBILE OPTIMIZATIONS */
     @media (max-width: 768px) { 
       section { padding: 60px 5%; min-height: auto; }
       h2 { margin-bottom: 30px; font-size: 2.2rem; }
       .hero { height: 100svh; } 
       .hero-logo img { width: 95%; max-width: 100%; }
       
-      .top-socials { padding: 30px 10px 10px; max-width: 100%; gap: 10px; }
-      .bottom-nav { padding: 10px 10px 30px; max-width: 100%; gap: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      /* Padding lateral del 5% igual que las secciones */
+      .top-socials { padding: 30px 5% 10px; max-width: 100%; gap: 10px; }
+      .bottom-nav { padding: 10px 5% 30px; max-width: 100%; gap: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .bottom-nav a { font-size: 0.75rem; letter-spacing: 1px; white-space: nowrap; }
 
       .about-text { column-count: 1; font-size: 1rem; }
@@ -92,7 +95,6 @@
       .music-grid { grid-template-columns: 1fr; gap: 30px; align-items: start; }
       .spotify iframe { min-height: 400px; }
       
-      .contact-wrapper { flex-direction: column; gap: 24px; }
       .contact-link { font-size: 1.8rem; }
       .ghost-buttons { margin-top: 40px; }
     }
@@ -182,7 +184,8 @@
       </div>
       <div class="video-stack">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/AslbE_4RdU8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- Param ?v=2 inyectado para burlar la caché -->
+          <iframe src="https://www.youtube.com/embed/AslbE_4RdU8?v=2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/YEL_nkwpyaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -198,9 +201,8 @@
       <a class="contact-link" href="https://wa.me/+34623068523" target="_blank">WhatsApp Us</a>
     </div>
     <div class="ghost-buttons">
-      <!-- Sustituye el "#" por el nombre de tu archivo PDF subido a GitHub -->
-      <a href="dossier_sloths_2026.pdf" target="_blank" class="ghost-btn">Dossier</a>
-      <a href="tech_rider_sloths.pdf" target="_blank" class="ghost-btn">Tech Rider</a>
+      <a href="sloths_dossier.pdf" target="_blank" class="ghost-btn">Dossier</a>
+      <a href="sloths_rider.pdf" target="_blank" class="ghost-btn">Tech Rider</a>
     </div>
   </section>
 
