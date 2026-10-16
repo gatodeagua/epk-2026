@@ -13,7 +13,6 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    /* Textura SVG inyectada con grano ultra fino (baseFrequency 1.5) y opacidad bajísima (3%) */
     body, html { 
       font-family: 'Inter', sans-serif; 
       background-color: #0d0d0d; 
@@ -32,15 +31,14 @@
     
     .top-socials { display: flex; justify-content: space-between; width: 100%; max-width: 600px; margin: 0 auto; padding: 40px 20px 10px; z-index: 1; }
     
-    /* Drop shadow aplicado a los iconos de RRSS */
     .top-socials a { 
       color: #a659cf; 
       font-size: 1.4rem; 
       text-decoration: none; 
-      transition: opacity 0.3s ease; 
+      transition: color 0.3s ease; 
       filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.9));
     }
-    .top-socials a:hover { opacity: 0.6; }
+    .top-socials a:hover { color: #fff; }
     
     .hero-logo { z-index: 1; display: flex; justify-content: center; align-items: center; flex-grow: 1; pointer-events: none; padding: 0 5%; }
     
@@ -53,7 +51,6 @@
     
     .bottom-nav { display: flex; justify-content: space-between; width: 100%; max-width: 600px; margin: 0 auto; padding: 10px 20px 40px; z-index: 1; }
     
-    /* Drop shadow aplicado al directorio */
     .bottom-nav a { 
       color: #a659cf; 
       text-decoration: none; 
@@ -61,10 +58,10 @@
       font-weight: 700; 
       font-size: 1rem; 
       letter-spacing: 2px; 
-      transition: opacity 0.3s; 
+      transition: color 0.3s ease; 
       filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.9));
     }
-    .bottom-nav a:hover { opacity: 0.6; }
+    .bottom-nav a:hover { color: #fff; }
 
     section { min-height: 100vh; padding: 100px 10%; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid rgba(26, 26, 26, 0.5); }
     #contact { justify-content: flex-start; }
