@@ -44,12 +44,14 @@
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 10px)); } }
     @media (max-width: 768px) { .slider-track img { width: 300px; height: 250px; } }
 
-    /* Fix para los cortes de vídeo y altura de Spotify */
-    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+    /* Música ajustada: Spotify respira y los vídeos no ocupan media pantalla */
+    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     @media (max-width: 768px) { .music-grid { grid-template-columns: 1fr; } }
-    .video-stack { display: flex; flex-direction: column; gap: 24px; }
-    .video-stack iframe { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; border: none; }
+    
     .spotify iframe { min-height: 600px; height: 100%; }
+    
+    .video-stack { display: flex; flex-direction: column; gap: 24px; align-items: center; justify-content: center; }
+    .video-stack iframe { width: 100%; max-width: 480px; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; border: none; }
 
     .contact-wrapper { display: flex; flex-direction: column; gap: 24px; }
     .contact-link { font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; width: fit-content; transition: color 0.3s; letter-spacing: -1px; word-break: break-all; }
@@ -71,6 +73,7 @@
   <header class="hero" id="home">
     
     <video class="video-bg" autoplay loop muted playsinline>
+      <!-- COMPRUEBA QUE ESTE NOMBRE SEA 100% IDÉNTICO AL ARCHIVO SUBIDO -->
       <source src="sloths-bg.mp4" type="video/mp4">
     </video>
 
